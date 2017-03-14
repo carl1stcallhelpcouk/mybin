@@ -1,0 +1,204 @@
+2016-08-01 21:50:19|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 21:50:19|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 21:50:19|[ OK ]|gw|systemd|sshd|Active: active (running) since Mon 2016-08-01 21:39:32 BST; 10min ago
+2016-08-01 22:00:22|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 22:00:22|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 22:00:22|[ OK ]|gw|systemd|sshd|Active: active (running) since Mon 2016-08-01 21:39:32 BST; 20min ago
+2016-08-01 22:00:43|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 22:00:43|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 22:00:43|[ OK ]|gw|systemd|sshd|Active: active (running) since Mon 2016-08-01 21:39:32 BST; 21min ago
+2016-08-01 22:22:19|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 22:22:19|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 22:22:19|[ OK ]|gw|systemd|sshd|Active: active (running) since Mon 2016-08-01 22:18:16 BST; 4min 3s ago
+2016-08-01 22:24:11|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 22:24:11|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 22:24:11|[ OK ]|gw|systemd|sshd|Active: active (running) since Mon 2016-08-01 22:18:16 BST; 5min ago
+2016-08-01 22:26:19|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 22:26:19|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-01 22:26:19|[ OK ]|gw|systemd|sshd|Active: active (running) since Mon 2016-08-01 22:18:16 BST; 8min ago
+2016-08-03 18:03:26|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 18:03:26|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 18:03:26|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 07:59:48 BST; 10h ago
+2016-08-03 18:27:49|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 18:27:49|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 18:27:49|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 07:59:48 BST; 10h ago
+2016-08-03 21:00:33|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 21:00:33|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 21:00:33|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 07:59:48 BST; 13h ago
+2016-08-03 21:57:50|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 21:57:50|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 21:57:50|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 07:59:48 BST; 13h ago
+2016-08-03 22:25:31|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 22:25:31|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 22:25:31|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 07:59:48 BST; 14h ago
+2016-08-03 23:03:48|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 23:03:48|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-03 23:03:48|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 23:01:02 BST; 2min 46s ago
+2016-08-04 06:50:07|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-04 06:50:07|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-04 06:50:07|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 23:15:25 BST; 7h ago
+2016-08-05 06:58:00|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-05 06:58:00|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-05 06:58:00|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 23:15:25 BST; 1 day 7h ago
+2016-08-05 11:50:54|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-05 11:50:54|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-05 11:50:54|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 23:15:25 BST; 1 day 12h ago
+2016-08-05 16:43:09|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-05 16:43:09|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-05 16:43:09|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 23:15:25 BST; 1 day 17h ago
+2016-08-05 21:37:13|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-05 21:37:13|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-05 21:37:13|[ OK ]|gw|systemd|sshd|Active: active (running) since Wed 2016-08-03 23:15:25 BST; 1 day 22h ago
+2016-08-06 13:07:09|[ OK ]|dell-laptop|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 13:07:09|[ OK ]|dell-laptop|netinf|wlan0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+
+hgjg
+2016-08-06 13:40:59|[ OK ]|dell-laptop|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 13:40:59|[ OK ]|dell-laptop|netinf|wlan0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 13:40:59|[ OK ]|dell-laptop|systemd|sshd|Active: active (running) since Sat 2016-08-06 11:47:10 BST; 1h 53min ago
+2016-08-06 13:40:59|[ OK ]|dell-laptop|systemd|autofs|Active: active (running) since Sat 2016-08-06 11:47:22 BST; 1h 53min ago
+2016-08-06 13:40:59|[DOWN]|dell-laptop|systemd|mysql|Active: failed (Result: exit-code) since Sat 2016-08-06 11:47:51 BST; 1h 53min ago
+2016-08-06 13:40:59|[DOWN]|dell-laptop|systemd|dnsmasq|Active: inactive (dead)
+2016-08-06 13:45:24|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 13:45:24|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 13:45:24|[ OK ]|gw|systemd|sshd|Active: active (running) since Sat 2016-08-06 13:00:19 BST; 45min ago
+2016-08-06 13:45:58|[DOWN]|mail|netinf|eth0| 
+2016-08-06 13:45:58|[DOWN]|mail|systemd|postfix| 
+2016-08-06 13:45:58|[DOWN]|mail|systemd|dovecot| 
+2016-08-06 13:45:58|[DOWN]|mail|systemd|autofs| 
+2016-08-06 13:46:25|[DOWN]|mysql|systemd|mysql| 
+2016-08-06 13:46:25|[DOWN]|mysql|netinf|eth0| 
+2016-08-06 13:47:04|[DOWN]|www|netinf|eth0| 
+2016-08-06 13:47:04|[DOWN]|www|systemd|apache2| 
+2016-08-06 13:47:27|[DOWN]|nas|systemd|nfs-kernel-server| 
+2016-08-06 13:47:27|[DOWN]|nas|netinf|eth1| 
+2016-08-06 13:47:27|[DOWN]|nas|netinf|eth0| 
+2016-08-06 13:48:03|[DOWN]|dell-server|vbox|mail| 
+2016-08-06 13:48:03|[DOWN]|dell-server|vbox|www| 
+2016-08-06 13:48:03|[DOWN]|dell-server|vbox|mysql| 
+2016-08-06 13:48:03|[DOWN]|dell-server|vbox|nas| 
+2016-08-06 13:48:03|[DOWN]|dell-server|vbox|gw| 
+2016-08-06 13:48:03|[DOWN]|dell-server|netinf|eth0| 
+2016-08-06 13:49:41|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 13:49:41|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 13:49:41|[ OK ]|gw|systemd|sshd|Active: active (running) since Sat 2016-08-06 13:00:19 BST; 49min ago
+2016-08-06 13:52:50|[DOWN]|mail|netinf|eth0| 
+2016-08-06 13:52:50|[DOWN]|mail|systemd|postfix| 
+2016-08-06 13:52:50|[DOWN]|mail|systemd|dovecot| 
+2016-08-06 13:52:50|[DOWN]|mail|systemd|autofs| 
+jdfhjskhfd
+2016-08-06 13:58:29|[DOWN]|mail|netinf|eth0| 
+2016-08-06 13:58:29|[DOWN]|mail|systemd|postfix| 
+2016-08-06 13:58:29|[DOWN]|mail|systemd|dovecot| 
+2016-08-06 13:58:29|[DOWN]|mail|systemd|autofs| 
+2016-08-06 14:00:01|[DOWN]|mail|netinf|eth0| 
+2016-08-06 14:00:01|[DOWN]|mail|systemd|postfix| 
+2016-08-06 14:00:01|[DOWN]|mail|systemd|dovecot| 
+2016-08-06 14:00:01|[DOWN]|mail|systemd|autofs| 
+2016-08-06 14:00:37|[DOWN]|mail|netinf|eth0| 
+2016-08-06 14:00:37|[DOWN]|mail|systemd|postfix| 
+2016-08-06 14:00:37|[DOWN]|mail|systemd|dovecot| 
+2016-08-06 14:00:37|[DOWN]|mail|systemd|autofs| 
+2016-08-06 14:05:42|[ OK ]|dell-laptop|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:05:42|[ OK ]|dell-laptop|netinf|wlan0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:05:42|[ OK ]|dell-laptop|systemd|sshd|Active: active (running) since Sat 2016-08-06 11:47:10 BST; 2h 18min ago
+2016-08-06 14:05:42|[ OK ]|dell-laptop|systemd|autofs|Active: active (running) since Sat 2016-08-06 11:47:22 BST; 2h 18min ago
+2016-08-06 14:05:42|[DOWN]|dell-laptop|systemd|mysql|Active: failed (Result: exit-code) since Sat 2016-08-06 11:47:51 BST; 2h 17min ago
+2016-08-06 14:05:42|[DOWN]|dell-laptop|systemd|dnsmasq|Active: inactive (dead)
+2016-08-06 14:05:50|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:05:50|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:05:50|[ OK ]|gw|systemd|sshd|Active: active (running) since Sat 2016-08-06 13:00:19 BST; 1h 5min ago
+2016-08-06 14:06:13|[DOWN]|mail|netinf|eth0| 
+2016-08-06 14:06:13|[DOWN]|mail|systemd|postfix| 
+2016-08-06 14:06:13|[DOWN]|mail|systemd|dovecot| 
+2016-08-06 14:06:13|[DOWN]|mail|systemd|autofs| 
+2016-08-06 14:06:43|[ OK ]|dell-laptop|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:06:43|[ OK ]|dell-laptop|netinf|wlan0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:06:43|[ OK ]|dell-laptop|systemd|sshd|Active: active (running) since Sat 2016-08-06 11:47:10 BST; 2h 19min ago
+2016-08-06 14:06:43|[ OK ]|dell-laptop|systemd|autofs|Active: active (running) since Sat 2016-08-06 11:47:22 BST; 2h 19min ago
+2016-08-06 14:06:43|[DOWN]|dell-laptop|systemd|mysql|Active: failed (Result: exit-code) since Sat 2016-08-06 11:47:51 BST; 2h 18min ago
+2016-08-06 14:06:43|[DOWN]|dell-laptop|systemd|dnsmasq|Active: inactive (dead)
+2016-08-06 14:11:21|[DOWN]|mail|netinf|eth0| 
+2016-08-06 14:11:21|[DOWN]|mail|systemd|postfix| 
+2016-08-06 14:11:21|[DOWN]|mail|systemd|dovecot| 
+2016-08-06 14:11:21|[DOWN]|mail|systemd|autofs| 
+2016-08-06 14:13:09|[DOWN]|mail|netinf|eth0| 
+2016-08-06 14:13:09|[DOWN]|mail|systemd|postfix| 
+2016-08-06 14:13:09|[DOWN]|mail|systemd|dovecot| 
+2016-08-06 14:13:09|[DOWN]|mail|systemd|autofs| 
+2016-08-06 14:15:48|[DOWN]|mail|netinf|eth0| 
+2016-08-06 14:15:48|[DOWN]|mail|systemd|postfix| 
+2016-08-06 14:15:48|[DOWN]|mail|systemd|dovecot| 
+2016-08-06 14:15:48|[DOWN]|mail|systemd|autofs| 
+2016-08-06 14:34:59|[ OK ]|mail|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:34:59|[ OK ]|mail|systemd|postfix|Active: active (running) since Fri 2016-08-05 07:02:19 BST; 1 day 7h ago
+2016-08-06 14:34:59|[ OK ]|mail|systemd|dovecot|Active: active (running) since Fri 2016-08-05 07:02:05 BST; 1 day 7h ago
+2016-08-06 14:34:59|[ OK ]|mail|systemd|autofs|Active: active (running) since Fri 2016-08-05 07:02:10 BST; 1 day 7h ago
+2016-08-06 14:35:17|[DOWN]|www|netinf|eth0| 
+2016-08-06 14:35:17|[DOWN]|www|systemd|apache2| 
+2016-08-06 14:35:36|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:35:36|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:35:36|[ OK ]|gw|systemd|sshd|Active: active (running) since Sat 2016-08-06 13:00:19 BST; 1h 35min ago
+2016-08-06 14:35:58|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:35:58|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:35:58|[ OK ]|gw|systemd|sshd|Active: active (running) since Sat 2016-08-06 13:00:19 BST; 1h 35min ago
+2016-08-06 14:36:21|[ OK ]|dell-laptop|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:36:21|[ OK ]|dell-laptop|netinf|wlan0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:36:21|[ OK ]|dell-laptop|systemd|sshd|Active: active (running) since Sat 2016-08-06 11:47:10 BST; 2h 49min ago
+2016-08-06 14:36:21|[ OK ]|dell-laptop|systemd|autofs|Active: active (running) since Sat 2016-08-06 11:47:22 BST; 2h 48min ago
+2016-08-06 14:36:21|[DOWN]|dell-laptop|systemd|mysql|Active: failed (Result: exit-code) since Sat 2016-08-06 11:47:51 BST; 2h 48min ago
+2016-08-06 14:36:21|[DOWN]|dell-laptop|systemd|dnsmasq|Active: inactive (dead)
+2016-08-06 14:36:39|[ OK ]|dell-laptop|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:36:39|[ OK ]|dell-laptop|netinf|wlan0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:36:39|[ OK ]|dell-laptop|systemd|sshd|Active: active (running) since Sat 2016-08-06 11:47:10 BST; 2h 49min ago
+2016-08-06 14:36:39|[ OK ]|dell-laptop|systemd|autofs|Active: active (running) since Sat 2016-08-06 11:47:22 BST; 2h 49min ago
+2016-08-06 14:36:39|[DOWN]|dell-laptop|systemd|mysql|Active: failed (Result: exit-code) since Sat 2016-08-06 11:47:51 BST; 2h 48min ago
+2016-08-06 14:36:39|[DOWN]|dell-laptop|systemd|dnsmasq|Active: inactive (dead)
+2016-08-06 14:36:59|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:36:59|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:36:59|[ OK ]|gw|systemd|sshd|Active: active (running) since Sat 2016-08-06 13:00:19 BST; 1h 36min ago
+2016-08-06 14:37:13|[ OK ]|www|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:37:13|[ OK ]|www|systemd|apache2|Active: active (running) since Fri 2016-08-05 07:28:11 BST; 1 day 7h ago
+2016-08-06 14:37:28|[DOWN]|mysql|systemd|mysql| 
+2016-08-06 14:37:28|[DOWN]|mysql|netinf|eth0| 
+2016-08-06 14:38:36|[ OK ]|mysql|systemd|mysql|Active: active (running) since Wed 2016-08-03 23:19:21 BST; 2 days ago
+2016-08-06 14:38:36|[ OK ]|mysql|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:40:10|[ OK ]|mail|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:40:24|[ OK ]|mail|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:40:24|[ OK ]|mail|systemd|postfix|Active: active (running) since Fri 2016-08-05 07:02:19 BST; 1 day 7h ago
+2016-08-06 14:40:24|[ OK ]|mail|systemd|dovecot|Active: active (running) since Fri 2016-08-05 07:02:05 BST; 1 day 7h ago
+2016-08-06 14:40:24|[ OK ]|mail|systemd|autofs|Active: active (running) since Fri 2016-08-05 07:02:10 BST; 1 day 7h ago
+2016-08-06 14:40:41|[ OK ]|nas|systemd|nfs-kernel-server|Active: active (running) since Wed 2016-08-03 23:18:24 BST; 2 days ago
+2016-08-06 14:40:41|[ OK ]|nas|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:40:41|[ OK ]|nas|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:40:55|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:40:55|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:40:55|[ OK ]|gw|systemd|sshd|Active: active (running) since Sat 2016-08-06 13:00:19 BST; 1h 40min ago
+2016-08-06 14:41:29|[DOWN]|dell-server|vbox|mail| 
+2016-08-06 14:41:29|[DOWN]|dell-server|vbox|www| 
+2016-08-06 14:41:29|[DOWN]|dell-server|vbox|mysql| 
+2016-08-06 14:41:29|[DOWN]|dell-server|vbox|nas| 
+2016-08-06 14:41:29|[DOWN]|dell-server|vbox|gw| 
+2016-08-06 14:41:29|[DOWN]|dell-server|netinf|eth0| 
+2016-08-06 14:44:06|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:44:06|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:44:06|[ OK ]|gw|systemd|sshd|Active: active (running) since Sat 2016-08-06 13:00:19 BST; 1h 43min ago
+2016-08-06 14:44:07|[ OK ]|mail|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:44:43|[ OK ]|nas|systemd|nfs-kernel-server|Active: active (running) since Wed 2016-08-03 23:18:24 BST; 2 days ago
+2016-08-06 14:44:43|[ OK ]|nas|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:44:43|[ OK ]|nas|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:44:21|[ OK ]|www|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:44:21|[ OK ]|www|systemd|apache2|Active: active (running) since Fri 2016-08-05 07:28:11 BST; 1 day 7h ago
+2016-08-06 14:44:57|[ OK ]|mail|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:44:57|[ OK ]|mail|systemd|postfix|Active: active (running) since Fri 2016-08-05 07:02:19 BST; 1 day 7h ago
+2016-08-06 14:44:57|[ OK ]|mail|systemd|dovecot|Active: active (running) since Fri 2016-08-05 07:02:05 BST; 1 day 7h ago
+2016-08-06 14:44:57|[ OK ]|mail|systemd|autofs|Active: active (running) since Fri 2016-08-05 07:02:10 BST; 1 day 7h ago
+2016-08-06 15:04:04|[ OK ]|dell-laptop|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 15:04:04|[ OK ]|dell-laptop|netinf|wlan0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 15:04:04|[ OK ]|dell-laptop|systemd|sshd|Active: active (running) since Sat 2016-08-06 14:56:09 BST; 7min ago
+2016-08-06 15:04:04|[ OK ]|dell-laptop|systemd|autofs|Active: active (running) since Sat 2016-08-06 14:56:20 BST; 7min ago
+2016-08-06 15:04:04|[DOWN]|dell-laptop|systemd|mysql|Active: failed (Result: exit-code) since Sat 2016-08-06 14:56:52 BST; 7min ago
+2016-08-06 15:04:04|[DOWN]|dell-laptop|systemd|dnsmasq|Active: inactive (dead)
+2016-08-06 14:59:36|[ OK ]|gw|netinf|eth0|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:59:36|[ OK ]|gw|netinf|eth1|UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+2016-08-06 14:59:36|[ OK ]|gw|systemd|sshd|Active: active (running) since Sat 2016-08-06 13:00:19 BST; 1h 59min ago

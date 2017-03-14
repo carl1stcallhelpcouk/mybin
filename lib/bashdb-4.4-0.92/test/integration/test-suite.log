@@ -1,0 +1,24 @@
+======================================================
+   bashdb 4.4-0.92: test/integration/test-suite.log
+======================================================
+
+# TOTAL: 42
+# PASS:  40
+# SKIP:  2
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+SKIP: test-file-with-spaces
+===========================
+
+Skipping test due to autoconf problems
+
+SKIP: test-file-with-spaces
+===========================
+
+Skipping test due to autoconf problems
+

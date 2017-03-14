@@ -1,0 +1,131 @@
+#!/bin/bash
+#
+# Shared Functions
+#
+
+#
+# function fnDirSize - Params [DIR].
+#   Returns the size of the [DIR].
+#
+fnDirSizeHelp="fnDirSize [DIR]                    -   Returns the size of [DIR]"
+
+function fnDirSize () {
+#    printf "       %s called with params %s \n" "${fn}" "$*"
+    dir=$1
+    msg=$(du --max-depth=0 $dir | awk -F' ' '{ print $1 }')
+    ret=$?
+}
+
+
+
+
+#
+# function fnOldFiles - Params [DIR] and [AGE].
+#   Returns the files in [DIR] that are older then [AGE] in minutes.
+#
+fnOldFilesHelp="fnOldFiles [DIR] [AGE]             -   Returns a list of files in [DIR] that are older then [AGE] in minutes."
+
+function fnOldFiles () {
+#    printf "       %s called with params %s \n" "${fn}" "$*"
+    dir=$1
+    age=$2
+    msg="$(find ${dir} -type f -mmin -${age})"    
+    ret=$?
+}
+
+
+
+
+#
+# function fnTarFiles - Params [TARNAME] and [FILELIST].
+#   Archives [FILELIST] into archive [TARNAME].
+#
+fnTarFilesHelp="fnTarFiles [TARNAME] [FILELIST]    -   Archives [FILELIST] into archive [TARNAME]"
+
+function fnTarFiles () {
+#    printf "       %s called with params %s \n" "${fn}" "$*"
+    tarName=$1
+    fileList=$2
+    counter=1
+
+    for var in "$@"
+    do
+        if [ $counter -gt 3 ] ; then
+            fileList="${fileList} ${var}"
+        fi
+
+        counter=$((counter+1))
+    done
+
+    msg="$(tar -caf $tarName $fileList)\n"
+    ret=$?
+    
+}
+
+
+
+#
+# function fnRmFiles - Params [FILELIST].
+#   Deletes [FILELIST].
+#
+fnRmFilesHelp="fnRmFiles [FILELIST]               -   Deletes the files in [FILELIST]."
+
+function fnRmFiles () {
+#    printf "       %s called with params %s \n" "${fn}" "$*"
+    fileList=$*
+    msg="$(rm -v $fileList)\n"
+    ret=$?
+}
+
+
+
+
+#
+# function fnTarRmFiles - Params [TARNAME], [DIR] and [AGE].
+#   Archives into archive [TARNAME], and deletes files older than [AGE] in directory [DIR].
+#
+fnTarRmFilesHelp="fnTarRmFiles [TARNAME] [DIR] [AGE] -   Archives into archive [TARNAME], and deletes files older than [AGE] in directory [DIR]"
+
+function fnTarRmFiles () {
+    printf "       %s called with params %s \n" "${fn}" "${*}"
+#    tarName=$1
+#    dir=$2
+#    age=$3
+
+#    fnOldFiles $dir $age
+    
+#    if [ ${ret} -eq 0 ] ; then
+#        fileList="${msg}"
+#        fnTarFiles "${tarName}" "${fileList}"
+#        if [ ${ret} -eq 0 ] ; then
+#            fnRmFiles "${fileList}"
+#            if [ ${ret} -eq 0 ] ; then
+#                msg="Success - Archived and removed the following files :-\n${fileList}"
+#            else
+#                msg="rm Failed - Returned ${ret} - FileList is :-\n${fileList}"
+#            fi
+#        else
+#            msg="tar Failed - Returned  ${ret} - FileList is :-\n${fileList}"
+#        fi
+#    else
+#         msg="fnOldFiles Failed - Returned ${ret}"
+#    fi
+    ret=0
+}   
+
+
+
+#
+# function fnTarName - Params [PREFIX].
+#   Returns a uniqe .tar.gz filename with the prefix [PREFIX].
+#
+fnTarNameHelp="fnTarName [PREFIX]                 -   Returns a uniqe .tar.gz filename with the prefix [PREFIX]."
+
+function fnTarName () {
+
+    prefix=$1
+    suffix=".tar.gz"
+    
+    msg="${prefix}_$(date +'%Y%m%d%H%M%S')$suffix"
+    ret=0
+}

@@ -1,0 +1,120 @@
+#!/bin/bash
+#
+# Shared Functions
+#
+
+#
+# Params [DIR]. Return the size of the passed directory
+#
+function dirSize () {
+    printf "       %s called with params %s \n" "$1" "$*"
+    dir=$2
+    msg=$(du --max-depth=0 $dir | awk -F' ' '{ print $1 }')
+    ret=$?
+}
+
+#
+# Params [DIR] and [AGE].  Returns the files in [DIR] than are older then [AGE] in minutes.
+#
+function oldFiles () {
+    printf "       %s called with params %s \n" "$1" "$*"
+    dir=$2
+    age=$3
+    msg="$(find ${dir} -type f -mmin +${age})"    
+    ret=$?
+}
+
+#
+# Params [TARNAME] and [FILELIST].  Archives [FILELIST] into archive [TARNAME].
+#
+function tarFiles () {
+    printf "       %s called with params %s \n" "$1" "$*"
+    tarName=$2
+    fileList=$3
+    counter=1
+
+    for var in "$@"
+    do
+        if [ $counter -gt 3 ] ; then
+            fileList="${fileList} ${var}"
+        fi
+
+        counter=$((counter+1))
+    done
+
+    msg="$(tar -caf $tarName $fileList)\n"
+    ret=$?
+    
+}
+
+#
+# Params [FILELIST].  Delete [FILELIST].
+#
+function rmFiles () {
+    printf "       %s called with params %s \n" "$1" "$*"
+    fileList=$2
+    counter=1
+
+    for var in "$@"
+    do
+        if [ $counter -gt 2 ] ; then
+            fileList="${fileList} ${var}"
+        fi
+
+        counter=$((counter+1))
+    done
+
+    msg="$(rm -v $fileList)\n"
+    ret=$?
+}
+#
+# Params [TARNAME], [DIR] and [AGE].  Archives then deletes files older than [AGE] in directory [DIR] into archive [TARNAME].
+#
+function tarRmFiles () {
+    printf "       %s called with params %s \n" "$1" "$*"
+    tarName=$2
+    dir=$3
+    age=$4
+
+    oldFiles oldFiles $dir $age
+    
+    if [ ${ret} -eq 0 ] ; then
+        fileList="${msg}"
+        tarFiles "tarFiles" "${tarName}" "${fileList}"
+        if [ ${ret} -eq 0 ] ; then
+            rmFiles "rmFiles" "${fileList}"
+            if [ ${ret} -eq 0 ] ; then
+                msg="Success - Archived and removed the following files :-\n${fileList}"
+            else
+                msg="rm Failed - Returned ${ret} - FileList is :-\n${fileList}"
+            fi
+        else
+            msg="tar Failed - Returned  ${ret} - FileList is :-\n${fileList}"
+        fi
+    else
+         msg="oldFiles Failed - Returned ${ret}"
+    fi
+}   
+
+#
+# If paramiter(s) passed, then run the function if it exists and print the results.
+#
+fn="${1}"
+
+if [ -n "${fn}" ]; then 
+#    set -x
+    fnType=$(type -t "${fn}")
+
+    if [ "${fnType}x" == "functionx" ] ; then
+        ${fn} "${@}"
+        printf "${msg}\n"
+    
+        if [ $ret -eq 0 ] ; then
+            printf "Success\n"
+        else
+            printf "Failier Code ${ret}\n"
+        fi
+     else
+        printf "${fn} is not a valid operation\n"
+     fi
+fi

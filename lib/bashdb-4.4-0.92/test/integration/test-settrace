@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+t=${0##*/}; TEST_NAME=${t:5}   # basename $0 with 'test-' stripped off
+
+[ -z "$builddir" ] && export builddir=$PWD
+. ${builddir}/check-common.sh
+
+debugged_script="$top_builddir/test/example/settrace.sh"
+(cd $srcdir && $SH ${TEST_NAME}.tests > $TEST_FILE 2>&1 < /dev/null)
+
+check_output $TEST_FILE $RIGHT_FILE
+
+# Return code tells testing mechanism whether passed or not.
+exit $?
