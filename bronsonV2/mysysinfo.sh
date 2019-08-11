@@ -23,7 +23,7 @@ touch "${HOME}/.upd_list"
 
 if [ ${timesince} -gt ${timelim} ] ; then
     printf "Checking for updates...\n\n" | tee -a "${HOME}/login.log"
-    res="$( ${HOME}/bin/bronsonV2/myupdates.sh 2>&1 )"
+    res="$( ${HOME}/mybin/bronsonV2/myupdates.sh 2>&1 )"
     echo "${res}" > "${HOME}/.upd_list"
     echo "${currrun}" > "${HOME}/.upd_chk" 
 else

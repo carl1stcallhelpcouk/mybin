@@ -1,5 +1,5 @@
 #!/bin/bash
-pathToTar="/shares/data/backups/"
+pathToTar="/home/carl/data/backups/"
 pathToFiles="/home/carl/bin"
 prefix="bin_bkup-"
 suffix=".tar.gz"

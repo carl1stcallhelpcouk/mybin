@@ -39,10 +39,10 @@ fi
 printf "\n" | tee -a "${HOME}/login.log"
 screen -ls | tee -a "${HOME}/login.log"
 
-if [ -x "${HOME}/bin/lola/binsync.sh" ] ; then
+if [ -x "${HOME}/mybin/lola/binsync.sh" ] ; then
 
 	echo "Syncing ${HOME}/bin directory." | tee -a "${HOME}/login.log"
-	source ${HOME}/bin/lola/binsync.sh >> "${HOME}/login.log" 2>&1 &
+	source ${HOME}/mybin/lola/binsync.sh >> "${HOME}/login.log" 2>&1 &
 
 fi
 
