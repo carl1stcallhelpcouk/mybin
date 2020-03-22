@@ -1,63 +1,163 @@
 #!/usr/bin/env bash
+#set -exv
+PS4='$LINENO: '
 
-usage ()
+script_name=`basename $0`       # Find the script name.
+
+#
+#   Set default values 
+#
+verbose=false                   # Display verbosly.
+interactive=false               # Run interactivly.
+from_user="pi"                  # User to rename.
+to_user=""                      # Username to raname to.
+
+script_name=`basename $0`     # Find the script name.
+
+#
+#   Define functions
+#
+show_usage ()                   # Display the usage instuctions
 {
-	me=`basename $0`
-	echo "${me} [-f | --fromuser username] [-t | --touser username] [-i | --interactive] [-h | --help]"
+	printf "%s: %s\n" "${script_name}" "${script_name} [-h | --help] [-v | --verbose ] [-i | --interactive] [ -f | --fromuser username] [-t | --touser username]"
+  return ${EX_USAGE}
 }
 
-DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$DIR" ]]; then
-	DIR="$PWD";
-fi
+show_help ()
+{
+  show_usage
+  cat <<ENDOFHELP
+    Renames a user.
 
+    Options:
+      -v | --verbose                Display verbosly.
+      -i | --interactive            Run interactivly.
+      -f | --fromuser username      Username to rename from (Defaults to 'pi').
+      -t | --touser username        Username to raname to (required).
+      -h | --help                   Display this help.
+
+ENDOFHELP
+
+  return ${EX_USAGE}
+}
+
+locate_script ()                # Locate the script path.
+{
+  DIR="${BASH_SOURCE%/*}"
+
+  if [[ ! -d "$DIR" ]]; then
+	  DIR="${PWD}";
+  fi
+
+  return ${EX_OK}
+}
+
+#
+#   Main script
+#
+locate_script
 source "$DIR/lib/exit_codes.shinc"
 
-echo "Your command line contains $# arguments."
-
-
-interactive=false
-fromuser=pi
-touser=carl
-
-while [ "$1" != "" ]; do
-    case $1 in
-        -f | --fromuser )	shift
-				fromuser=$1
+while [ "${1}" != "" ]; do
+    case ${1} in
+      -v | --verbose )
+        verbose=true
+        ;;
+      -f | --fromuser )	shift
+				from_user=${1}
 				;;
-	-t | --touser )		shift
-				touser=$1
+	    -t | --touser )		shift
+				to_user=${1}
 				;;
-        -i | --interactive )	interactive=true
+      -i | --interactive )	
+        interactive=true
 				;;
-        -h | --help )           usage
-                                exit
-                                ;;
-        * )                     usage
-                                exit 1
+      -h | --help )
+        show_help
+        exit ${EX_OK}
+        ;;
+      * )
+        show_usage
+        exit ${EX_DATAERR}
     esac
     shift
 done
 
-echo "fromuser : ${fromuser}	touser : ${touser}	interactive : ${interactive}"
+if [ "${verbose}" == true ]
+then
+  echo "fromuser : ${from_user}	touser : ${to_user}	interactive : ${interactive} verbose : ${verbose}"
+fi
 
-exit $EX_NOUSER
+if [ "${verbose}" == true ]
+then
+  id "${from_user}" 
+  from_user_notexists=${?}
+  id "${to_user}"
+  to_user_notexists=${?}
+else
+  id "${from_user}"> /dev/null 2>&1
+  from_user_notexists=${?}
+  id "${to_user}"> /dev/null 2>&1
+  to_user_notexists=${?}
+fi
+echo $from_user_notexists
+if [ "${from_user_notexists}" == "0" ]
+then
 
-exit 1
+  if [ "${verbose}" == true ]
+  then
+    echo "User ${from_user} Exists (${from_user_notexists})"
+  fi
+#  exit ${EX_OK}
 
-id
+else
+  if [ "${verbose}" == true ]
+  then
+    echo "User ${from_user} Does not exists (${from_user_notexists})"
+  fi
+  exit ${EX_NOUSER}
+fi
+
+if [ "${to_user_notexists}" == "0" ]
+then
+
+  if [ "${verbose}" == true ]
+  then
+    echo "User ${to_user} Exists (${to_user_notexists})"
+  fi
+  exit ${to_user_notexists}
+
+else
+  if [ "${verbose}" == true ]
+  then
+    echo "User ${to_user} Does not exists (${to_user_notexists})"
+  fi
+#  exit ${EX_OK}
+fi
 cd /etc
-sudo tar -cvf authfiles.tar passwd group shadow gshadow sudoers lightdm/lightdm.conf systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf
+file_list1=($(ls -f authfiles.tar passwd group shadow gshadow sudoers lightdm/lightdm.conf systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf))
+echo "File list - ${file_list1[@]}" 
+tar -cvf ~/authfiles.tar ${file_list1[@]}
+exit ${?}
+
+
+  exit 1
+
+
+
+
+
+tar -cvf authfiles.tar passwd group shadow gshadow sudoers lightdm/lightdm.conf systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf
 #sudo sed -i.$(date +'%y%m%d_%H%M%S') 's/\bpi\b/carl/g' passwd group shadow gshadow sudoers systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf
-sudo sed -i.$(date +'%y%m%d_%H%M%S') 's/\bpi\b/carl/g' passwd group shadow gshadow sudoers systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf
+#sudo sed -i.$(date +'%y%m%d_%H%M%S') 's/\bpi\b/carl/g' passwd group shadow gshadow sudoers systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf
 #sudo sed -i.$(date +'%y%m%d_%H%M%S') 's/user=pi/user=carl/' lightdm/lightdm.conf
-sudo sed -i.$(date +'%y%m%d_%H%M%S') 's/user=pi/user=carl/' lightdm/lightdm.conf
-grep carl /etc/group
-sudo mv /home/pi /home/carl
-sudo ln -s /home/carl /home/pi
+#sudo sed -i.$(date +'%y%m%d_%H%M%S') 's/user=pi/user=carl/' lightdm/lightdm.conf
+#grep carl /etc/group
+#sudo mv /home/pi /home/carl
+#sudo ln -s /home/carl /home/pi
 #sudo [ -f /var/spool/cron/crontabs/pi ] && sudo mv -v /var/spool/cron/crontabs/pi /var/spool/cron/crontabs/carl '/var/spool/cron/crontabs/pi' -> '/var/spool/cron/crontabs/carl'
-ls -lah /var/spool/mail
-ls -lah /var/spool/mail/
+#ls -lah /var/spool/mail
+#ls -lah /var/spool/mail/
 
 
 
