@@ -53,7 +53,7 @@ locate_script ()                # Locate the script path.
 }
 
 isValidUsername() {
-  local re='^[[:lower:]_][[:lower:][:digit:]_-]{2,15}$'
+  local re='^[[:lower:]_][[:lower:][:digit:]_-]{1,15}$'
   (( ${#1} > 16 )) && return 1
   [[ $1 =~ $re ]] # return value of this comparison is used for the function
 }
