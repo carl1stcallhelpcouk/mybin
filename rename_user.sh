@@ -156,17 +156,24 @@ else
 fi
 
 cd /etc
-file_list1=($(ls -f "passwd group shadow gshadow sudoers lightdm/lightdm.conf systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf"))
-file_list2=($(ls -f "passwd group shadow gshadow sudoers systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf"))
-file_list3=($(ls -f "lightdm/lightdm.conf"))
+archive_filelist=($(ls -f passwd group shadow gshadow sudoers "lightdm/lightdm.conf" "systemd/system/autologin@.service sudoers.d/*" "polkit-1/localauthority.conf.d/60-desktop-policy.conf"))
+filelist1=($(ls -f passwd group shadow gshadow sudoers "systemd/system/autologin@.service sudoers.d/*" "polkit-1/localauthority.conf.d/60-desktop-policy.conf"))
+filelist2=($(ls -f "lightdm/lightdm.conf"))
 
-echo "File list1 - ${file_list1[@]}" 
-echo "File list2 - ${file_list2[@]}" 
-echo "File list3 - ${file_list3[@]}" 
 
-sudo tar -cvf authfiles.tar ${file_list1[@]}
-tar_return=${?}
-if [${tar_return} == "0"] ; then
+if [ "${verbose}" == true ] ; then
+  echo "Archive Filelist - ${archive_filelist[@]}" 
+  echo "Search Filelist1 - ${filelist1[@]}" 
+  echo "Search Filelist2 - ${filelist2[@]}" 
+
+  sudo tar -cvf authfiles.tar ${archive_filelist[@]}
+  tar_return=${?}
+else
+  sudo tar -cvf authfiles.tar ${archive_filelist[@]} > /dev/null 2>&1
+  tar_return=${?}
+fi
+
+if [ ${tar_return} == "0" ] ; then
   if [ "${verbose}" == true ] ; then
     echo "tar backup of files sucsessful."
   fi
@@ -174,10 +181,9 @@ else
   echo "tar backup of files failed."
   exit ${tar_return}
 fi
-exit 1
 
-sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/\b${from_user}\b/${to_user}/g" ${file_list2[@]}
-sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/user=${from_user}/user=${to_user}/" ${file_list3[@]}
+sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/\b${from_user}\b/${to_user}/g" ${filelist1[@]}
+sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/user=${from_user}/user=${to_user}/" ${filelist2[@]}
 sudo mv /home/${from_user} /home/${to_user}
 sudo ln -s /home/$to_user /home/${from_user}
 sudo [ -f /var/spool/cron/crontabs/${from_user} ] && sudo mv -v /var/spool/cron/crontabs/${from_user} /var/spool/cron/crontabs/${to_user} "/var/spool/cron/crontabs/${from_user}" -> "/var/spool/cron/crontabs/${to_user}"
