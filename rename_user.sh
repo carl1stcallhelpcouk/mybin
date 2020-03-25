@@ -166,7 +166,7 @@ echo "File list3 - ${file_list3[@]}"
 
 sudo tar -cvf authfiles.tar ${file_list1[@]}
 tar_return=${?}
-if [${tar_return} == 0] ; then
+if [${tar_return} == "0"] ; then
   if [ "${verbose}" == true ] ; then
     echo "tar backup of files sucsessful."
   fi
