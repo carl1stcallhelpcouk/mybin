@@ -52,13 +52,19 @@ locate_script ()                # Locate the script path.
   return ${EX_OK}
 }
 
+isValidUsername() {
+  local re='^[[:lower:]_][[:lower:][:digit:]_-]{2,15}$'
+  (( ${#1} > 16 )) && return 1
+  [[ $1 =~ $re ]] # return value of this comparison is used for the function
+}
+
 #
 #   Main script
 #
 locate_script
 source "$DIR/lib/exit_codes.shinc"
 
-while [ "${1}" != "" ]; do
+while [ "${1}" != "" ]; do    # Process commandline.
     case ${1} in
       -v | --verbose )
         verbose=true
@@ -83,13 +89,29 @@ while [ "${1}" != "" ]; do
     shift
 done
 
-if [ "${verbose}" == true ]
-then
+if [ "${verbose}" == true ] ; then
   echo "fromuser : ${from_user}	touser : ${to_user}	interactive : ${interactive} verbose : ${verbose}"
 fi
 
-if [ "${verbose}" == true ]
-then
+if isValidUsername "${from_user}" ; then
+  if [ "${verbose}" == true ] ; then
+    echo "From user ${from_user} is Valid"
+  fi
+else
+  echo "From user ${from_user} is invalid"
+  exit ${EX_NOUSER}
+fi
+
+if isValidUsername "${to_user}" ; then
+  if [ "${verbose}" == true ] ; then
+    echo "To user ${to_user} is Valid"
+  fi
+else
+  echo "To user ${to_user} is invalid"
+  exit ${EX_NOUSER}
+fi
+
+if [ "${verbose}" == true ] ; then
   id "${from_user}" 
   from_user_notexists=${?}
   id "${to_user}"
@@ -100,109 +122,63 @@ else
   id "${to_user}"> /dev/null 2>&1
   to_user_notexists=${?}
 fi
-echo $from_user_notexists
-if [ "${from_user_notexists}" == "0" ]
-then
 
-  if [ "${verbose}" == true ]
-  then
-    echo "User ${from_user} Exists (${from_user_notexists})"
+if [ "${from_user_notexists}" == "0" ] ; then
+  if [ "${verbose}" == true ] ; then
+    echo "From User ${from_user} Exists (${from_user_notexists})"
   fi
-#  exit ${EX_OK}
+
+  if [ ${from_user} == ${USER} ] ; then
+    echo "Cannot rename the current user."
+    exit ${EX_NOUSER}
+  else
+    if [ "${verbose}" == true ] ; then
+      echo "From user ${from_user} differs from ${USER}"
+    fi
+  fi
 
 else
-  if [ "${verbose}" == true ]
-  then
-    echo "User ${from_user} Does not exists (${from_user_notexists})"
+  if [ "${verbose}" == true ] ; then
+    echo "From User ${from_user} Does not exists (${from_user_notexists})"
   fi
   exit ${EX_NOUSER}
 fi
 
-if [ "${to_user_notexists}" == "0" ]
-then
-
-  if [ "${verbose}" == true ]
-  then
-    echo "User ${to_user} Exists (${to_user_notexists})"
+if [ "${to_user_notexists}" == "0" ] ; then
+  if [ "${verbose}" == true ] ; then
+    echo "To User ${to_user} Exists (${to_user_notexists})"
   fi
   exit ${to_user_notexists}
-
 else
-  if [ "${verbose}" == true ]
-  then
-    echo "User ${to_user} Does not exists (${to_user_notexists})"
+  if [ "${verbose}" == true ] ; then
+    echo "To User ${to_user} Does not exists (${to_user_notexists})"
   fi
-#  exit ${EX_OK}
 fi
+
 cd /etc
-file_list1=($(ls -f authfiles.tar passwd group shadow gshadow sudoers lightdm/lightdm.conf systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf))
-echo "File list - ${file_list1[@]}" 
-tar -cvf ~/authfiles.tar ${file_list1[@]}
-exit ${?}
+file_list1=($(ls -f passwd group shadow gshadow sudoers lightdm/lightdm.conf systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf))
+file_list2=($(ls -f passwd group shadow gshadow sudoers systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf))
+file_list3=($(ls -f lightdm/lightdm.conf))
 
+echo "File list1 - ${file_list1[@]}" 
+echo "File list2 - ${file_list2[@]}" 
+echo "File list3 - ${file_list3[@]}" 
 
-  exit 1
+sudo tar -cvf authfiles.tar ${file_list1[@]}
+tar_return=${?}
+if [${tar_return} == 0] ; then
+  if [ "${verbose}" == true ] ; then
+    echo "tar backup of files sucsessful."
+  fi
+else
+  echo "tar backup of files failed."
+  exit ${tar_return}
+fi
 
+sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/\b${from_user}\b/${to_user}/g" ${file_list2[@]}
+sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/user=${from_user}/user=${to_user}/" ${file_list3[@]}
+sudo mv /home/${from_user} /home/${to_user}
+sudo ln -s /home/$to_user /home/${from_user}
+sudo [ -f /var/spool/cron/crontabs/${from_user} ] && sudo mv -v /var/spool/cron/crontabs/${from_user} /var/spool/cron/crontabs/${to_user} "/var/spool/cron/crontabs/${from_user}" -> "/var/spool/cron/crontabs/${to_user}"
 
-
-
-
-tar -cvf authfiles.tar passwd group shadow gshadow sudoers lightdm/lightdm.conf systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf
-#sudo sed -i.$(date +'%y%m%d_%H%M%S') 's/\bpi\b/carl/g' passwd group shadow gshadow sudoers systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf
-#sudo sed -i.$(date +'%y%m%d_%H%M%S') 's/\bpi\b/carl/g' passwd group shadow gshadow sudoers systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf
-#sudo sed -i.$(date +'%y%m%d_%H%M%S') 's/user=pi/user=carl/' lightdm/lightdm.conf
-#sudo sed -i.$(date +'%y%m%d_%H%M%S') 's/user=pi/user=carl/' lightdm/lightdm.conf
-#grep carl /etc/group
-#sudo mv /home/pi /home/carl
-#sudo ln -s /home/carl /home/pi
-#sudo [ -f /var/spool/cron/crontabs/pi ] && sudo mv -v /var/spool/cron/crontabs/pi /var/spool/cron/crontabs/carl '/var/spool/cron/crontabs/pi' -> '/var/spool/cron/crontabs/carl'
-#ls -lah /var/spool/mail
-#ls -lah /var/spool/mail/
-
-
-
-
-#	EX_USAGE -- The command was used incorrectly, e.g., with
-#		the wrong number of arguments, a bad flag, a bad
-#		syntax in a parameter, or whatever.
-#	EX_DATAERR -- The input data was incorrect in some way.
-#		This should only be used for user's data & not
-#		system files.
-#	EX_NOINPUT -- An input file (not a system file) did not
-#		exist or was not readable.  This could also include
-#		errors like "No message" to a mailer (if it cared
-#		to catch it).
-#	EX_NOUSER -- The user specified did not exist.  This might
-#		be used for mail addresses or remote logins.
-#	EX_NOHOST -- The host specified did not exist.  This is used
-#		in mail addresses or network requests.
-#	EX_UNAVAILABLE -- A service is unavailable.  This can occur
-#		if a support program or file does not exist.  This
-#		can also be used as a catchall message when something
-#		you wanted to do doesn't work, but you don't know
-#		why.
-#	EX_SOFTWARE -- An internal software error has been detected.
-#		This should be limited to non-operating system related
-#		errors as possible.
-#	EX_OSERR -- An operating system error has been detected.
-#		This is intended to be used for such things as "cannot
-#		fork", "cannot create pipe", or the like.  It includes
-#		things like getuid returning a user that does not
-#		exist in the passwd file.
-#	EX_OSFILE -- Some system file (e.g., /etc/passwd, /etc/utmp,
-#		etc.) does not exist, cannot be opened, or has some
-#		sort of error (e.g., syntax error).
-#	EX_CANTCREAT -- A (user specified) output file cannot be
-#		created.
-#	EX_IOERR -- An error occurred while doing I/O on some file.
-#	EX_TEMPFAIL -- temporary failure, indicating something that
-#		is not really an error.  In sendmail, this means
-#		that a mailer (e.g.) could not create a connection,
-#		and the request should be reattempted later.
-#	EX_PROTOCOL -- the remote system returned something that
-#		was "not possible" during a protocol exchange.
-#	EX_NOPERM -- You did not have sufficient permission to
-#		perform the operation.  This is not intended for
-#		file system problems, which should use NOINPUT or
-#		CANTCREAT, but rather for higher level permissions.
-
+exit ${EX_OK}
