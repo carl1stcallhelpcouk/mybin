@@ -182,10 +182,17 @@ else
   exit ${tar_return}
 fi
 
-sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/\b${from_user}\b/${to_user}/g" ${filelist1[@]}
-sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/user=${from_user}/user=${to_user}/" ${filelist2[@]}
-sudo mv /home/${from_user} /home/${to_user}
-sudo ln -s /home/$to_user /home/${from_user}
-sudo [ -f /var/spool/cron/crontabs/${from_user} ] && sudo mv -v /var/spool/cron/crontabs/${from_user} /var/spool/cron/crontabs/${to_user} "/var/spool/cron/crontabs/${from_user}" -> "/var/spool/cron/crontabs/${to_user}"
-
+if [ "${verbose}" == true ] ; then
+  sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/\b${from_user}\b/${to_user}/g" ${filelist1[@]}
+  sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/user=${from_user}/user=${to_user}/" ${filelist2[@]}
+  sudo mv /home/${from_user} /home/${to_user}
+  sudo ln -s /home/$to_user /home/${from_user}
+  sudo [ -f /var/spool/cron/crontabs/${from_user} ] && sudo mv -v /var/spool/cron/crontabs/${from_user} /var/spool/cron/crontabs/${to_user} "/var/spool/cron/crontabs/${from_user}" -> "/var/spool/cron/crontabs/${to_user}"
+else
+  sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/\b${from_user}\b/${to_user}/g" ${filelist1[@]} > /dev/null 2>&1
+  sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/user=${from_user}/user=${to_user}/" ${filelist2[@]} > /dev/null 2>&1
+  sudo mv /home/${from_user} /home/${to_user} > /dev/null 2>&1
+  sudo ln -s /home/$to_user /home/${from_user} > /dev/null 2>&1
+  sudo [ -f /var/spool/cron/crontabs/${from_user} ] && sudo mv -v /var/spool/cron/crontabs/${from_user} /var/spool/cron/crontabs/${to_user} "/var/spool/cron/crontabs/${from_user}" -> "/var/spool/cron/crontabs/${to_user}" > /dev/null 2>&1
+fi
 exit ${EX_OK}
