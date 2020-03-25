@@ -156,9 +156,9 @@ else
 fi
 
 cd /etc
-file_list1=($(ls -f passwd group shadow gshadow sudoers lightdm/lightdm.conf systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf))
-file_list2=($(ls -f passwd group shadow gshadow sudoers systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf))
-file_list3=($(ls -f lightdm/lightdm.conf))
+file_list1=($(ls -f "passwd group shadow gshadow sudoers lightdm/lightdm.conf systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf"))
+file_list2=($(ls -f "passwd group shadow gshadow sudoers systemd/system/autologin@.service sudoers.d/* polkit-1/localauthority.conf.d/60-desktop-policy.conf"))
+file_list3=($(ls -f "lightdm/lightdm.conf"))
 
 echo "File list1 - ${file_list1[@]}" 
 echo "File list2 - ${file_list2[@]}" 
@@ -174,6 +174,7 @@ else
   echo "tar backup of files failed."
   exit ${tar_return}
 fi
+exit 1
 
 sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/\b${from_user}\b/${to_user}/g" ${file_list2[@]}
 sudo sed -i.$(date +'%y%m%d_%H%M%S') "s/user=${from_user}/user=${to_user}/" ${file_list3[@]}
